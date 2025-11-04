@@ -1,0 +1,38 @@
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney Magical Movies</title>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="leftMovie.css">
+</head>
+<body>
+
+  <img src="https://i.ibb.co/3ry1nFQ/cloud1.png" class="cloud" alt="cloud">
+  <img src="https://i.ibb.co/3ry1nFQ/cloud1.png" class="cloud" alt="cloud">
+  <img src="https://i.ibb.co/3ry1nFQ/cloud1.png" class="cloud" alt="cloud">
+
+  <header>
+    <h1>✨ Disney Magical Movies ✨</h1>
+    <p>Discover the magic of Disney through every story</p>
+
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search movie...">
+      <button class="filter-btn active" onclick="filterMovies('all')">All</button>
+      <button class="filter-btn" onclick="filterMovies('now')">Now Showing</button>
+      <button class="filter-btn" onclick="filterMovies('soon')">Coming Soon</button>
+    </div>
+  </header>
+
+
+  <div class="movies-grid" id="moviesGrid"></div>
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>

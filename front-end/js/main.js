@@ -3,10 +3,9 @@ const search = document.getElementById("search");
 let movies = [];
 let currentFilter = 'all';
 
-// Ganti URL backend di sini kalau perlu
 const BACKEND_URL = window.location.hostname === "localhost"
-  ? "http://localhost:5000/movies"     // kalau dijalankan lokal
-  : "http://backend:5000/movies";      // kalau di Docker Compose
+  ? "http://localhost:5000/movies"     
+  : "http://backend:5000/movies";     
 
 async function fetchMovies() {
   try {
