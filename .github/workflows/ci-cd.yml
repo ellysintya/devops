@@ -35,7 +35,7 @@ jobs:
       - name: Build Frontend (Static HTML)
         run: |
           echo "📦 Copying frontend files..."
-          working-directory: front-end
+          cd front-end
           echo "✅ Frontend ready for deploy"
 
 
