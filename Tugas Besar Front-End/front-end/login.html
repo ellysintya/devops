@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="login.css">
+<title>Disney Login</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap');
+</style>
+</head>
+<body>
+
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+<div class="login-card">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney Logo">
+  <h2>Welcome Dreamer ✨</h2>
+  
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  
+  <button onclick="login()">Login</button>
+  
+  <p>Don’t have an account? <a href="register.html">Register</a></p>
+</div>
+
+<script>
+function login() {
+  // alert("Welcome to the Magic Kingdom, " + document.getElementById("username").value + "!");
+  window.location.assign('./leftMovie.html')
+}
+</script>
+
+</body>
+</html>

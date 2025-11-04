@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disney Register</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap');
+</style>
+<link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+
+
+<div class="register-card">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney Logo">
+  <h2>Create Your Magic ✨</h2>
+  <p class="subtitle">Join the Disney adventure and make dreams come true</p>
+  
+  <input type="text" id="fullname" placeholder="Full Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  
+  <button onclick="register()">Register</button>
+  
+  <p>Already have an account? <a href="login.html">Login here</a></p>
+</div>
+
+<script>
+function register() {
+  const name = document.getElementById("fullname").value;
+  if (name.trim() !== "") {
+    alert("Welcome to the Disney World, " + name + "! 🌟");
+  } else {
+    alert("Please fill in your name first!");
+  }
+}
+</script>
+
+</body>
+</html>
