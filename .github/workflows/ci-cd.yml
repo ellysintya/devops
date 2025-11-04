@@ -21,21 +21,21 @@ jobs:
 
       - name: Install Dependencies (Backend)
         run: |
-          cd backend
+          cd back-end
           npm install || echo "No dependencies"
           echo "✅ Backend setup complete"
 
       - name: Test Backend (Simulation)
         run: |
-          echo "🚀 Running backend simulation..."
-          node backend/server.js &
+          echo "🚀 Running back-end simulation..."
+          node back-end/server.js &
           sleep 2
           echo "✅ Backend running successfully"
 
       - name: Build Frontend (Static HTML)
         run: |
           echo "📦 Copying frontend files..."
-          ls "Tugas Besar Front-End"
+          working-directory: front-end
           echo "✅ Frontend ready for deploy"
 
 
