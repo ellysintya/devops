@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney Trailer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="styleSheet" href="trailer.css">
+</head>
+<body>
+  <div class="trailer-header">
+    <h2>🎬 Watch Trailer</h2>
+    <button class="back-button" onclick="history.back()">← Back</button>
+  </div>
+
+  <div class="container">
+    <div id="poster" class="poster"></div>
+    <div class="details">
+      <h1 id="title"></h1>
+      <p id="year"></p>
+      <p id="desc"></p>
+
+      <video id="video" class="video" controls>
+        <source id="videoSrc" src="" type="video/mp4">
+      </video>
+
+      <div class="schedule">
+        <h3>🎟 Showtimes</h3>
+        <p>• Monday – Friday: 13:00, 16:00, 19:00</p>
+        <p>• Saturday – Sunday: 11:00, 14:30, 18:30, 21:00</p>
+      </div>
+
+      <!-- Tombol Buy Ticket sudah diperbaiki -->
+      <button class="buy-btn" id="buyButton">Buy Ticket 🎫</button>
+    </div>
+  </div>
+
+  <script>
+    const movies = [
+  {
+    id: 1,
+    title: "The Nutcracker 2",
+    year: "2024",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/nutcracker-and-the-four-realms-poster_8824b113.jpeg",
+    desc: "A magical sequel exploring new realms beyond imagination.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  },
+  {
+    id: 2,
+    title: "The Little Mermaid",
+    year: "2023",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/poster-id-payoff_ce62087b.jpeg",
+    desc: "A young mermaid trades her voice for legs to live on land and find love.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  },
+  {
+    id: 3,
+    title: "Encanto",
+    year: "2021",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/encanto-id-poster_b0f0a082.jpeg",
+    desc: "Mirabel must save her family's magic before it fades away.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  },
+  {
+    id: 4,
+    title: "Elemental Forces of Nature",
+    year: "2023",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/elemental-poster-id_8425eb19.jpeg",
+    desc: "Fire meets water in a city where elements live together.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  },
+  {
+    id: 5,
+    title: "Raya and The Last Dragon",
+    year: "2021",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/character_poster_04_402f583b.jpeg",
+    desc: "Raya sets out to find the last dragon to save her land.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  },
+  {
+    id: 6,
+    title: "Leroy & Stitch",
+    year: "2006",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/open-uri20150422-12561-1loqhq0_38866eec.jpeg",
+    desc: "Lilo and Stitch must stop a new experiment gone wrong.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  },
+  {
+    id: 7,
+    title: "Incredibles 2",
+    year: "2018",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/poster-incinemas-now-en_042a3924.jpeg",
+    desc: "The superhero family returns with even more action and heart.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  },
+  {
+    id: 8,
+    title: "Aladdin",
+    year: "2019",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/aladdin-movie-poster_63150511.jpeg",
+    desc: "A street rat discovers a magic lamp and a whole new world.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  },
+  {
+    id: 9,
+    title: "Toy Story 4",
+    year: "2019",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/toystory4-poster_6b94390a.jpeg",
+    desc: "Woody and Buzz embark on a new adventure with Forky.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  },
+  {
+    id: 10,
+    title: "Avatar: The Way of Water",
+    year: "2022",
+    poster: "https://lumiere-a.akamaihd.net/v1/images/avatar-wayofwater-id_afe7ec94.jpeg",
+    desc: "Jake Sully lives with his family in Pandora’s oceans.",
+    trailer: "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4"
+  }
+];
+
+
+    // Ambil ID film dari parameter URL
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'));
+    const movie = movies.find(m => m.id === id);
+
+    if (movie) {
+      document.getElementById('poster').style.backgroundImage = `url('${movie.poster}')`;
+      document.getElementById('title').textContent = movie.title;
+      document.getElementById('year').textContent = movie.year;
+      document.getElementById('desc').textContent = movie.desc;
+      document.getElementById('videoSrc').src = movie.trailer;
+      document.getElementById('video').load();
+
+      // Tombol Buy Ticket mengarah ke halaman buy.html
+      document.getElementById('buyButton').addEventListener('click', () => {
+        window.location.href = `ticket.html?title=${encodeURIComponent(movie.title)}`;
+      });
+    }
+  </script>
+</body>
+</html>
