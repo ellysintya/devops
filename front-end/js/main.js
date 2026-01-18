@@ -2,7 +2,10 @@ const grid = document.getElementById("moviesGrid");
 const search = document.getElementById("search");
 let movies = [];
 let currentFilter = 'all';
+<<<<<<< HEAD
 alert("INI MAIN.JS BARU TANPA IMPORT");
+=======
+>>>>>>> 798e9f9c77e651bef7efbcbfb57ddc631c841a11
 
 // Ganti URL backend di sini kalau perlu
 const BACKEND_URL = window.location.hostname === "localhost"
@@ -49,8 +52,11 @@ function filterMovies(type) {
 
 search.addEventListener('input', renderMovies);
 fetchMovies();
+<<<<<<< HEAD
 
 window.filterMovies = filterMovies;
 window.goToTrailer = goToTrailer;
 
 
+=======
+>>>>>>> 798e9f9c77e651bef7efbcbfb57ddc631c841a11

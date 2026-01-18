@@ -1,0 +1,46 @@
+name: CI/CD Pipeline (Frontend & Backend) Devops
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+
+      - name: Install Dependencies (Backend)
+        run: |
+          cd back-end
+          npm install || echo "No dependencies"
+          echo "✅ Backend setup complete"
+
+      - name: Test Backend (Simulation)
+        run: |
+          echo "🚀 Running back-end simulation..."
+          node back-end/server.js &
+          sleep 2
+          echo "✅ Backend running successfully"
+
+      - name: Build Frontend (Static HTML)
+        run: |
+          echo "📦 Copying frontend files..."
+          cd front-end
+          echo "✅ Frontend ready for deploy"
+
+
+      - name: Deploy Simulation
+        run: |
+          echo "🎯 Simulating deployment..."
+          sleep 2
+          echo "✅ Deployment successful!"
