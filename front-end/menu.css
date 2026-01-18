@@ -1,0 +1,377 @@
+ body {
+     box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #87ceeb 100%);
+            min-height: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+  
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: transparent;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            animation: float 3s ease-in-out infinite;
+            background: transparent;
+            border: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .castle-container {
+            margin-bottom: 3rem;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .castle {
+            width: 450px;
+            height: auto;
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.6)) 
+                    drop-shadow(0 0 40px rgba(255, 215, 0, 0.8))
+                    drop-shadow(0 0 80px rgba(135, 206, 235, 0.4));
+            animation: castleGlow 3s ease-in-out infinite, castleFloat 4s ease-in-out infinite;
+            transform-origin: center bottom;
+            z-index: 3;
+            position: relative;
+        }
+
+        .castle-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, 
+                rgba(255, 215, 0, 0.2) 0%, 
+                rgba(135, 206, 235, 0.15) 30%, 
+                rgba(255, 255, 255, 0.1) 60%, 
+                transparent 100%);
+            border-radius: 50%;
+            animation: auraGlow 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .castle-container::after {
+            content: '✨';
+            position: absolute;
+            font-size: 2rem;
+            color: #FFD700;
+            animation: sparkleMove 6s linear infinite;
+            z-index: 4;
+        }
+
+        @keyframes castleGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.6)) 
+                        drop-shadow(0 0 40px rgba(255, 215, 0, 0.8))
+                        drop-shadow(0 0 80px rgba(135, 206, 235, 0.4));
+            }
+            50% { 
+                filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.8)) 
+                        drop-shadow(0 0 60px rgba(255, 215, 0, 1))
+                        drop-shadow(0 0 120px rgba(135, 206, 235, 0.6));
+            }
+        }
+
+        @keyframes castleFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.02); }
+        }
+
+        @keyframes auraGlow {
+            0%, 100% { 
+                opacity: 0.6; 
+                transform: translate(-50%, -50%) scale(1); 
+            }
+            50% { 
+                opacity: 0.9; 
+                transform: translate(-50%, -50%) scale(1.1); 
+            }
+        }
+
+        @keyframes sparkleMove {
+            0% { 
+                top: 20%; 
+                left: 10%; 
+                opacity: 0; 
+                transform: rotate(0deg); 
+            }
+            25% { 
+                top: 10%; 
+                left: 80%; 
+                opacity: 1; 
+                transform: rotate(90deg); 
+            }
+            50% { 
+                top: 70%; 
+                left: 90%; 
+                opacity: 0.8; 
+                transform: rotate(180deg); 
+            }
+            75% { 
+                top: 80%; 
+                left: 20%; 
+                opacity: 1; 
+                transform: rotate(270deg); 
+            }
+            100% { 
+                top: 20%; 
+                left: 10%; 
+                opacity: 0; 
+                transform: rotate(360deg); 
+            }
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.5); }
+            50% { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.8); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #E6E6FA;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        /* Character section */
+        .character-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .character-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #FFD700;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .character-text {
+            flex: 1;
+        }
+
+        .character-title {
+            font-size: 1.8rem;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .character-description {
+            font-size: 1.1rem;
+            color: #E6E6FA;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
+        }
+
+        /* Start button */
+        .start-button {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B4513;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #FFA500, #FFD700);
+        }
+
+        .start-button:active {
+            transform: translateY(-1px);
+        }
+
+        .start-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .start-button:hover::before {
+            left: 100%;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .castle {
+                width: 350px;
+            }
+
+            .castle-container::before {
+                width: 400px;
+                height: 400px;
+            }
+
+            .character-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+
+            .character-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .character-title {
+                font-size: 1.5rem;
+            }
+
+            .start-button {
+                font-size: 1.2rem;
+                padding: 0.8rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 1rem;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .castle {
+                width: 280px;
+            }
+
+            .castle-container::before {
+                width: 320px;
+                height: 320px;
+            }
+
+            .castle-container::after {
+                font-size: 1.5rem;
+            }
+
+            .character-section {
+                padding: 1rem;
+                margin: 0 1rem 2rem 1rem;
+            }
+        }

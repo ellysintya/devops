@@ -1,0 +1,7 @@
+FROM nginx:alpine
+
+# Copy semua file frontend ke folder web nginx
+COPY . /usr/share/nginx/html
+
+# Port default nginx
+EXPOSE 80

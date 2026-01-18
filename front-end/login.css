@@ -1,0 +1,118 @@
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #a1c4fd 0%, #c2e9fb 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: sparkle 10s linear infinite;
+  opacity: 0.3;
+}
+@keyframes sparkle {
+  from { transform: translate(0,0); }
+  to { transform: translate(-100px, -100px); }
+}
+
+
+.login-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  padding: 50px 40px;
+  width: 340px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(8px);
+}
+
+
+.login-card img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+
+h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  color: #5A3EBA;
+  margin-bottom: 20px;
+}
+
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 2px solid #c2e9fb;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+input:focus {
+  border-color: #5A3EBA;
+  box-shadow: 0 0 10px rgba(90, 62, 186, 0.3);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid white;
+  background: linear-gradient(135deg, #5A3EBA, #9B6CFB);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(90, 62, 186, 0.4);
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(90, 62, 186, 0.6);
+}
+
+p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+}
+a {
+  color: #5A3EBA;
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.star {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center/contain;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.8;
+}
+.star:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.star:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
+.star:nth-child(3) { top: 80%; left: 30%; animation-delay: 4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(20deg); }
+}
