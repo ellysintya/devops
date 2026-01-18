@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 FROM nginx:alpine
 
 # Copy semua file frontend ke folder web nginx
@@ -6,20 +5,3 @@ COPY . /usr/share/nginx/html
 
 # Port default nginx
 EXPOSE 80
-=======
-# Gunakan base image Python karena punya web server bawaan
-FROM python:3.11-slim
-
-# Set working directory
-WORKDIR /app
-
-# Copy semua file ke dalam container
-COPY . .
-
-# Jalankan simple HTTP server di port 8000
-CMD ["python", "-m", "http.server", "8000", "--directory", ".", "--bind", "0.0.0.0"]
-
-
-# Expose port 8000
-EXPOSE 8000
->>>>>>> 798e9f9c77e651bef7efbcbfb57ddc631c841a11
